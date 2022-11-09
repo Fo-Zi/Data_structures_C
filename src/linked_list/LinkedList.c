@@ -6,58 +6,68 @@
 
 #include "LinkedList.h"
 
-struct node {
-	int data;
-	struct node *next;
-};
-
-struct list{
-	Node *head;
-	uint16_t size;
-};
-
-bool add_node(int data, List *list){
-	Node *current = list->head;
-	Node *newNode = (Node *) malloc(sizeof(Node));
-	if(newNode==NULL){
-		return false;
-	}
-	if(current==NULL){
-		list->head = newNode;
-	}
-	else{
-		while(current->next!=NULL){
-			current = current->next;
-		}
-		current->next = newNode;
-	}
-	newNode->data = data;
-	newNode->next = NULL;
-	list->size+=1;
-	return true;
+ListPtr create_list() {
+	ListPtr tempList = (ListPtr) malloc (sizeof (List));
+	if(!tempList) {
+		return -1;
+	};
+	tempList->size = 0;	
+	tempList->head = NULL;	
+	tempList->tail = NULL;
+	return tempList;
 }
 
-bool remove_node(int data, List *list){
-	Node *current = list->head;
-	Node *previous = NULL;
-	if(current==NULL){
-		return false;
-	}	
-	while(current->data!=data){
-		previous = current; 
-		current = current->next;
-	}
-	if(current->next==NULL){	
-		previous->next = NULL;
-		free(current);
+int insert_first_node(ListPtr ptrList, Data data){
+	if(ptrList == NULL) {
+		return -1;
+	};
+	
+	NodePtr tempPtr = (NodePtr) malloc (sizeof (Node));
+	if(!tempPtr) {
+		return -1;
+	};
+	
+	tempPtr -> data = data;
+	ptrList-> size += 1;
+
+	if(ptrList-> head == NULL){
+		ptrList -> head = tempPtr;
+		ptrList -> tail = tempPtr;
+		tempPtr -> next = NULL;
+		return 1;
 	}else{
-		previous->next = current->next;
-		free(current);
+		tempPtr -> next = ptrList->head;
+		ptrList -> head = tempPtr;	
 	}
-	list->size=1;
-	return true;
+	return 1;
 }
 
-uint16_t length_list(List *list){
-	return (list->size);
-}
+/*int insert_last_node(ListPtr ptrList, Data data){*/
+	/*if(ptrList == NULL) {*/
+		/*return -1;*/
+	/*};*/
+	
+	/*NodePtr tempPtr = (NodePtr) malloc (sizeof (Node));*/
+	/*if(!tempPtr) {*/
+		/*return -1;*/
+	/*};*/
+	
+	/*tempPtr -> data = data;*/
+	/*tempPtr -> next = NULL;*/
+	/*ptrList-> size += 1;*/
+
+	/*if(ptrList-> head == NULL){*/
+		/*ptrList -> head = tempPtr;*/
+		/*ptrList -> tail = tempPtr;*/
+		/*return 1;*/
+	/*}else{*/
+		/*NodePtr auxPtr = ptrList->head;*/
+		/*while(auxPtr -> next != NULL){*/
+			/*auxPtr -> next = (auxPtr->next)->next;*/
+		/*}*/
+		/*auxPtr -> next = tempPtr;	*/
+		/*ptrList -> tail = tempPtr;*/
+	/*}*/
+	/*return 1;*/
+/*}*/
+
