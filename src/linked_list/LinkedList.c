@@ -108,4 +108,26 @@ int remove_first(ListPtr list) {
 		list->head = aux2;
 		return 1;
 	}
+	
 }
+
+int remove_last(ListPtr list) {
+	if(list == NULL){
+		return -1;
+	}
+	
+	NodePtr auxTail = list -> tail;
+	if(auxTail == NULL){
+		return -1;
+	}	
+
+	NodePtr iter = list -> head;	
+	while( ( iter->next ) != auxTail ){
+		iter = iter->next;	
+	}
+	list->tail = iter;
+	free(auxTail);
+	return 1;
+}
+
+
