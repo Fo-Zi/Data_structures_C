@@ -13,7 +13,7 @@ To build the code you would need to navigate to the 'build' folder, and run:
 ```
 cmake ..
 ```
-This will create all the auxiliary and temprorary files in the build folder, maintaining the main one clean. To update and executing:
+This will create all the auxiliary and temprorary files in the build folder, maintaining the main one clean. To update and execute:
 ```
 make && ctest -VV
 ```
