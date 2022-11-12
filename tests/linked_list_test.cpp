@@ -13,7 +13,7 @@ TEST(LinkedListTest,CreatingEmptyList){
 	ASSERT_TRUE(empty_list->size == 0);
 }
 
-TEST(LinkedListTest,InsertingFirstNode_valid_inputs){
+TEST(LinkedListTest,InsertingFirstNode_ValidInputs){
 	ListPtr list1;
 	list1 = create_list();	
 
@@ -31,13 +31,13 @@ TEST(LinkedListTest,InsertingFirstNode_valid_inputs){
 	ASSERT_TRUE(tempPtr-> data == 20);
 }
 
-TEST(LinkedListTest,InsertingFirstNode_nullList){
+TEST(LinkedListTest,InsertingFirstNode_NullList){
 
 	ASSERT_TRUE(insert_first(nullptr, 20) == -1);
 
 }
 
-TEST(LinkedListTest,InsertingFirstNode_emptyList){
+TEST(LinkedListTest,InsertingFirstNode_EmptyList){
 	ListPtr list2;
 	list2 = create_list();	
 	
@@ -45,7 +45,7 @@ TEST(LinkedListTest,InsertingFirstNode_emptyList){
 	ASSERT_TRUE(list2->head == list2->tail);
 }
 
-TEST(LinkedListTest,InsertingLastNode_validInputs){
+TEST(LinkedListTest,InsertingLastNode_PopulatedList){
 	ListPtr list2;
 	list2 = create_list();	
 	insert_first(list2,100);
@@ -57,13 +57,13 @@ TEST(LinkedListTest,InsertingLastNode_validInputs){
 	ASSERT_TRUE( ( list2->tail )-> data == -10);
 }
 
-TEST(LinkedListTest,InsertingLastNode_List){
+TEST(LinkedListTest,InsertingLastNode_NullList){
 
 	ASSERT_TRUE(insert_last(nullptr, 20) == -1);
 
 }
 
-TEST(LinkedListTest,InsertingLastNode_emptyList){
+TEST(LinkedListTest,InsertingLastNode_LastAsFirst){
 	ListPtr list2;
 	list2 = create_list();	
 
@@ -72,23 +72,52 @@ TEST(LinkedListTest,InsertingLastNode_emptyList){
 	ASSERT_TRUE( ( list2->tail ) == ( list2->head ));
 }
 
-//TEST(LinkedListTest,GettingNode_validInput){
-	//ListPtr list4;
-	//list4 = create_list();	
-	//insert_first(list4,10);
-	//insert_first(list4,20);
-	//insert_first(list4,30);
-	
-	//ASSERT_TRUE( ( get_node(list4,0) ) -> data == 30);
-	//ASSERT_TRUE( ( get_node(list4,1) ) -> data == 20);
-	//ASSERT_TRUE( ( get_node(list4,2) ) -> data == 10);
-//}
+TEST(LinkedListTest,GettingNode_ValidInput){
+      ListPtr list4;
+      list4 = create_list();	
+      insert_first(list4,10);
+      insert_first(list4,20);
+      insert_first(list4,30);
+      
+      ASSERT_TRUE( ( ( get_node(list4,0) ) -> data ) == 30);
+      ASSERT_TRUE( ( ( get_node(list4,1) ) -> data ) == 20);
+      ASSERT_TRUE( ( ( get_node(list4,2) ) -> data ) == 10);
+}
 
-/*TEST(LinkedListTest,DeletingNodes){*/
-	/*List *list2;*/
-	/*ASSERT_EQ(add_node(1,list2),true);*/
-	/*ASSERT_EQ(add_node(2,list2), true);*/
-	/*ASSERT_EQ(remove_node(2,list2), true);*/
-	/*ASSERT_EQ(remove_node(1,list2),true);*/
-	/*//ASSERT_EQ(remove_node(10,NULL),false);*/
-/*//	ASSERT_EQ(length_list(list2),0);*/
+TEST(LinkedListTest,GettingNode_NullList){
+      EXPECT_EQ(  get_node(nullptr,0) ,  nullptr);
+}
+
+TEST(LinkedListTest,GettingNode_NegativeIndex){
+     	ListPtr list5 = create_list(); 
+	EXPECT_EQ(  get_node(list5,-10) , nullptr);
+}
+
+TEST(LinkedListTest,GettingNode_EmptyNode){
+      	ListPtr list5;
+      	list5 = create_list();	
+      	insert_first(list5,10);
+	
+	EXPECT_EQ(  get_node(list5,1) ,  nullptr);
+}
+
+TEST(LinkedListTest,DeletingFirstNode_validInputs){
+        ListPtr list;
+     	list = create_list();	
+      	insert_first(list,30);
+      	insert_first(list,10);
+	
+	ASSERT_TRUE( remove_first(list) == 1 );
+	ASSERT_TRUE( ( list->head )-> data == 30 );
+}
+
+TEST(LinkedListTest,DeletingFirstNode_emptyList){
+        ListPtr list;
+     	list = create_list();	
+	
+	ASSERT_TRUE( remove_first(list) == -1 );
+}
+
+TEST(LinkedListTest,DeletingFirstNode_NullList){
+	ASSERT_TRUE( remove_first(NULL) == -1 );
+}

@@ -9,7 +9,7 @@
 ListPtr create_list() {
 	ListPtr tempList = (ListPtr) malloc (sizeof (List));
 	if(!tempList) {
-		return -1;
+		return NULL;
 	};
 	tempList->size = 0;	
 	tempList->head = NULL;	
@@ -68,21 +68,44 @@ int insert_last(ListPtr ptrList, Data data){
 	return 1;
 }
 
-/*NodePtr get_node(ListPtr list, int index){*/
-	/*if(index < 0){*/
-		/*return -1;*/
-	/*}*/
+NodePtr get_node(ListPtr list, int index){
+	if(index < 0 || list == NULL){
+		return NULL;
+	}
 	
-	/*int iter = 0;*/
-	/*NodePtr aux = list -> head;*/
-	/*if(aux == NULL){*/
-		/*return -1;*/
-	/*}*/
-	/*while(iter != index){*/
-		/*aux = aux -> next;	*/
-		/*if(aux == NULL){*/
-			/*return -1;	*/
-		/*}*/
-	/*}*/
-	/*return aux;*/
-/*}*/
+	int iter = 0;
+	NodePtr aux = list -> head;
+	if(aux == NULL){
+		return NULL;
+	}	
+	while(iter != index){
+		aux = aux -> next;	
+		if(aux == NULL){
+			return NULL;	
+		}
+		iter++;
+	}
+	return aux;
+}
+
+int remove_first(ListPtr list) {
+	if(list == NULL){
+		return -1;
+	}
+	
+	NodePtr aux = list -> head;
+	if(aux == NULL){
+		return -1;
+	}	
+
+	NodePtr aux2 = ( list -> head ) -> next;
+	free(aux);
+	
+	if(aux2 == NULL){
+		list -> head = NULL;
+		return 1;
+	}else{
+		list->head = aux2;
+		return 1;
+	}
+}
