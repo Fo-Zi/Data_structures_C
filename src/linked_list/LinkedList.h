@@ -1,4 +1,3 @@
-
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
@@ -28,8 +27,9 @@
 	typedef struct list* ListPtr;
 
 	ListPtr create_list();	
-	int insert_first_node(ListPtr list_ptr, Data data );
-
+	int insert_first(ListPtr list_ptr, Data data );
+	int insert_last(ListPtr list_ptr, Data data );
+	NodePtr get_node(ListPtr list_ptr ,int index);	
 	/*bool remove_node(int data, List *list);*/
 	/*uint16_t length_list(List *list);*/
 
