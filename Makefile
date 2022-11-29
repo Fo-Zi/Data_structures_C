@@ -1,14 +1,12 @@
 prepare:
 	cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=On
 
-clean:
-	rm -rf build
-	mkdir build
-
-
 buildit:
 	cmake --build build --config Debug --target coverage -j4
 
+clean:
+	rm -rf build
+	mkdir build
 
 test:
 	cd build && make && ctest -VV
