@@ -6,7 +6,7 @@ clean:
 	mkdir build
 
 buildit:
-	cd build && cmake ..
+	cd build && cmake .. && make
 
 test:
-	cd build && ctest -VV
+	cd build && make && ctest -VV
