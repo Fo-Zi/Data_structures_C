@@ -33,3 +33,22 @@ target_link_libraries(
 )
 
 add_test(LinkedList_gtest LinkedList_test)
+
+if (ENABLE_COVERAGE)
+    set(COVERAGE_MAIN "coverage")
+    set(COVERAGE_EXCLUDES
+        "${PROJECT_SOURCE_DIR}/cmake/*"
+        "${PROJECT_SOURCE_DIR}/docs/*"
+        "${PROJECT_SOURCE_DIR}/tests/*"
+        "${PROJECT_SOURCE_DIR}/build/*"
+        "${PROJECT_SOURCE_DIR}/config/*"
+        "/usr/include/*"
+		gtest_main
+		)
+
+    setup_target_for_coverage_lcov(
+        NAME ${COVERAGE_MAIN}
+        EXECUTABLE LinkedList_test
+        DEPENDENCIES LinkedList_test
+    )
+endif()
