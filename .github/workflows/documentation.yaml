@@ -16,6 +16,9 @@ jobs:
     - name: Install Docs
       run: |
         make install_doc
+    - name: Install Coverage tools
+      run: |
+        make install_cov
     - name: clean
       run: |
         make clean
