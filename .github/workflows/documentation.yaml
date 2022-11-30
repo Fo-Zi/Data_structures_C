@@ -13,24 +13,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-python@v2
-    - name: Install
-      run: |
-        make install
     - name: Install Docs
       run: |
         make install_doc
-    - name: Setup
+    - name: clean
       run: |
-        make setup
-    - name: prepare
-      run: |
-        make prepare
+        make clean
     - name: configure
       run: |
-        cmake -H. -Bbuild -G "Unix Makefiles" -DCMAKE_BUILD_TYPE="Debug"
+        make configure
     - name: building
       run: |
-        cmake --build build --config Debug --target docs -j4
+        make buildit
     - name: Deploy to GitHub Pages
       uses: Cecilapp/GitHub-Pages-deploy@v3
       env:
