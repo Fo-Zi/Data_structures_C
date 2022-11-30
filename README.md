@@ -17,11 +17,14 @@ And then:
 ```
 make buildit
 ```
-This will create all the auxiliary and temprorary files in the build folder, maintaining the main one clean. To execute the tests:
+This will create all the auxiliary and temprorary files in the build folder, maintaining the main one clean. 
+
+To execute the tests only:
 ```
 make test
 ```
-If you want to create a dependency using Graphviz you can do:
+
+If you want to create a dependency graph using Graphviz, you can do:
 ```
 make dependencies
 ```
