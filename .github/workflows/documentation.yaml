@@ -31,4 +31,4 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         email: facundozingarelli@gmail.com
-        build_dir: ./docs/html
+        build_dir: /docs/html
