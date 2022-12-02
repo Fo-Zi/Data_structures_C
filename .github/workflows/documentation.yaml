@@ -35,3 +35,8 @@ jobs:
       with:
         email: facundozingarelli@gmail.com
         build_dir: ./docs/html
+      
+    - name: Deploy code coverage
+      run: |
+        cd build/coverage
+        bash <(curl -s https://codecov.io/bash)
