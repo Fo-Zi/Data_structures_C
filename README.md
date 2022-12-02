@@ -1,6 +1,6 @@
 # Data Structures in C (In progress)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Build CI Test](https://github.com/Fo-Zi/Data_structures_C/blob/master/.github/workflows/documentation/badge.svg)
+[![Documentation](https://github.com/Fo-Zi/Data_structures_C/actions/workflows/documentation.yaml/badge.svg)](https://github.com/Fo-Zi/Data_structures_C/actions/workflows/documentation.yaml)
 [![codecov](https://codecov.io/gh/Fo-Zi/Data_structures_C/branch/master/graph/badge.svg?token=8Q5TLJXD1Q)](https://codecov.io/gh/Fo-Zi/Data_structures_C)
 ## Summary
 
