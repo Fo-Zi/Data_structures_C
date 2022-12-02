@@ -1,4 +1,5 @@
 # Data Structures in C (In progress)
+[![codecov](https://codecov.io/gh/Fo-Zi/Data_structures_C/branch/master/graph/badge.svg?token=8Q5TLJXD1Q)](https://codecov.io/gh/Fo-Zi/Data_structures_C)
 ## Summary
 
 This project will contain C implementations of data structures, with unit testing that was integrated using CMake and Google Tests, automated documentation using Doxygen, and code coverage capabilities. 
