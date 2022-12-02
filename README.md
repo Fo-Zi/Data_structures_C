@@ -1,4 +1,5 @@
 # Data Structures in C (In progress)
+![Build CI Test](https://github.com/Fo-Zi/Data_structures_C/blob/master/.github/workflows/documentation.yaml/badge.svg)
 [![codecov](https://codecov.io/gh/Fo-Zi/Data_structures_C/branch/master/graph/badge.svg?token=8Q5TLJXD1Q)](https://codecov.io/gh/Fo-Zi/Data_structures_C)
 ## Summary
 
